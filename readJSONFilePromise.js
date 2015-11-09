@@ -1,16 +1,20 @@
 const bluebird = require("bluebird");
 const fs = bluebird.promisifyAll(require("fs"));
 
-fs.readFileAsync("file.txt", "utf8")
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.log("error: " + error);
-    });
+function readJSONFile() {
+    return fs.readFileAsync("file.json", "utf8")
+        .then(data => {
+            return JSON.parse(data);
+        });
+}
 
-
-
-
-
-
+module.exports = function () {
+    readJSONFile()
+        .then(json => {
+            console.log("promise:", json);
+            //continue program
+        })
+        .catch(err => {
+            //do something
+        });
+};
