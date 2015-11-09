@@ -5,7 +5,7 @@ function readJSONFile() {
     return fs.readFileAsync("file.json", "utf8")
         .then(data => {
             return JSON.parse(data);
-        });
+        })
 }
 
 module.exports = function () {
@@ -16,5 +16,5 @@ module.exports = function () {
         })
         .catch(err => {
             //do something
-        });
+        })
 };

@@ -5,15 +5,14 @@ function readJSONFile(callback) {
         if (err) throw err;
         callback(JSON.parse(data));
     });
-};
+}
 
 module.exports = function () {
     try {
-        readJSONFile(
-            json => {
-                console.log("callback:", json);
-                //continue program
-            });
+        readJSONFile(json => {
+            console.log("callback:", json);
+            //continue program
+        });
     } catch (err) {
         //do something
     }

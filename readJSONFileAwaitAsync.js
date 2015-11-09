@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 const bluebird = require("bluebird");
 const fs = bluebird.promisifyAll(require("fs"));
 
@@ -9,10 +9,10 @@ async function readJSONFile() {
 
 module.exports = async function() {
     try {
-        var json = await readJSONFile();
+        const json = await readJSONFile();
         console.log("asyncAwait:", json);
         //continue program
     } catch(err) {
         //do something
-    };
+    }
 };
